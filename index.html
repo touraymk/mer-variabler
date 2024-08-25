@@ -47,6 +47,9 @@
         margin: 10px;
         border: 1px solid black;
       }
+      .selected {
+        border: 2px solid;
+      }
       #app {
         width: 500px;
         padding: 20px 0 50px;
@@ -56,19 +59,65 @@
   </head>
   <body>
     <div id="app">
-      <h1>Velg en farge <br />👇🏽</h1>
+      <h1 id="header">Velg en farge🎨</h1>
       <div class="colors">
-        <div class="color-div dotted" style="background-color: red"></div>
-        <div class="color-div dotted" style="background-color: green"></div>
-        <div class="color-div dotted" style="background-color: orange"></div>
+        <div
+          class="color-div dotted"
+          style="background-color: red"
+          onclick="selectColor(this)"
+        ></div>
+        <div
+          class="color-div"
+          style="background-color: green"
+          onclick="selectColor(this)"
+        ></div>
+        <div
+          class="color-div"
+          style="background-color: orange"
+          onclick="selectColor(this)"
+        ></div>
       </div>
       <div class="btn">
-        <button>Klikk for å endre farge</button>
+        <button onclick="changeBackgroundColor()">
+          Klikk for å endre farge
+        </button>
       </div>
       <div class="changeable-div">
-        <div></div>
-        <div></div>
+        <div onclick="setColorToDiv(this)"></div>
+        <div onclick="setColorToDiv(this)"></div>
       </div>
     </div>
+
+    <script>
+      let selectedDiv = null;
+      let selectedColor = "";
+
+      function selectColor(div) {
+        if (selectedDiv) {
+          selectedDiv.classList.remove("selected");
+          selectedDiv.style.border = "2px dotted transparent";
+        }
+        selectedDiv = div;
+        selectedDiv.classList.add("selected");
+        selectedDiv.style.border = "2px solid";
+        selectedColor = selectedDiv.style.backgroundColor;
+      }
+
+      function changeBackgroundColor() {
+        if (selectedColor) {
+          document.getElementById("app").style.backgroundColor = selectedColor;
+        } else {
+          document.getElementById("header").innerHTML = /*html*/ `
+                Vennligst velg en farge! <br/> 👇🏽
+            `;
+        }
+      }
+
+      function setColorToDiv(div) {
+        if (selectedColor) {
+          div.style.backgroundColor = selectedColor;
+        }
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Det store fargevalget🎨</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .colors {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        height: 50px;
+        margin-bottom: 40px;
+        cursor: pointer;
+      }
+      .colors > div {
+        width: 50px;
+      }
+      .dotted {
+        border: 1px dotted black;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+      }
+      .btn > button {
+        background-color: rgb(127, 22, 208);
+        color: antiquewhite;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 2px solid black;
+      }
+      .changeable-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .changeable-div > div {
+        height: 50px;
+        width: 50px;
+        background-color: white;
+        margin: 10px;
+        border: 1px solid black;
+      }
+      #app {
+        width: 500px;
+        padding: 20px 0 50px;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Velg en farge <br />👇🏽</h1>
+      <div class="colors">
+        <div class="color-div dotted" style="background-color: red"></div>
+        <div class="color-div dotted" style="background-color: green"></div>
+        <div class="color-div dotted" style="background-color: orange"></div>
+      </div>
+      <div class="btn">
+        <button>Klikk for å endre farge</button>
+      </div>
+      <div class="changeable-div">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>
